@@ -70,6 +70,52 @@ class Father {
 }
 
 class Son_no1 extends Father {
-
+    constructor(x, y) {
+        super(x, y)
+    }
 }
 
+var son2 = new Son_no1(1, 2);
+// son2.sum();
+
+//1.继承中，如果实例化子类输出一个方法，先看子类有没有这个方法，如果有就先执行子类的；没有就查找父类有没有这个方法，如果有就执行父类的；
+//(继承的就近原则)；
+
+class Father2 {
+    say() {
+        return 'baba'
+    }
+}
+
+class Son_no2 extends Father2 {
+    say() {
+        console.log(super.say() + 'of son');
+    }
+}
+// var son3 = new Son_no2();
+// son3.say();
+
+//===========子类继承父类的加法，同时，扩展减法方法================
+
+class Father3 {
+    constructor(x, y) {
+        this.x = x
+        this.y = y
+    }
+    sum() {
+        console.log(this.x + this.y);
+    }
+}
+
+class Son_no3 extends Father3 {
+    constructor(x, y) {
+        this.x = x
+        this.y = y
+    }
+    sum() {
+        console.log(this.x - this.y);
+    }
+}
+
+var son3 = new Son_no3(5, 3);
+son3.sum()
